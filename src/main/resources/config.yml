@@ -24,7 +24,7 @@ angleHeightDifference:
 
 toggles:
     enabledByDefault: false
-    maskEnabled: true
+    maskEnabled: false
     surfaceModeEnabled: false
     
 

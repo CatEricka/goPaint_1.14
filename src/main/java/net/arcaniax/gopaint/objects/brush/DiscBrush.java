@@ -83,7 +83,7 @@ public class DiscBrush extends Brush {
 
     @Override
     public String getName() {
-        return "Disc Brush";
+        return "圆盘笔刷";
     }
 
     @SuppressWarnings("deprecation")

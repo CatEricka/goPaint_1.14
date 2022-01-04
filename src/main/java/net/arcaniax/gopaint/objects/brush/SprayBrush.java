@@ -80,7 +80,7 @@ public class SprayBrush extends Brush {
 
     @Override
     public String getName() {
-        return "Spray Brush";
+        return "喷枪笔刷";
     }
 
     @SuppressWarnings("deprecation")

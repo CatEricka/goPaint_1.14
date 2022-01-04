@@ -55,7 +55,7 @@ public class Handler implements Listener, CommandExecutor {
             PlayerBrush pb = GoPaintPlugin.getBrushManager().getPlayerBrush(p);
             String prefix = GoPaintPlugin.getSettings().getPrefix();
             if (!p.hasPermission("gopaint.use")) {
-                p.sendMessage(prefix + "§cYou are lacking the permission gopaint.use");
+                p.sendMessage(prefix + "§c你缺少权限 gopaint.use");
                 return true;
             }
             if (args.length == 0) {
@@ -72,21 +72,21 @@ public class Handler implements Listener, CommandExecutor {
                 } else if (args[0].equalsIgnoreCase("toggle")) {
                     if (pb.isEnabled()) {
                         pb.toggleEnabled();
-                        p.sendMessage(prefix + "§cDisabled brush");
+                        p.sendMessage(prefix + "§cgo brush已禁用");
                     } else {
                         pb.toggleEnabled();
-                        p.sendMessage(prefix + "§aEnabled brush");
+                        p.sendMessage(prefix + "§ago brush已启用");
                     }
                     return true;
                 } else if ((args[0].equalsIgnoreCase("reload") || args[0].equalsIgnoreCase("r")) && p.hasPermission(
                         "gopaint.admin")) {
                     GoPaintPlugin.reload();
-                    p.sendMessage(prefix + "§aReloaded");
+                    p.sendMessage(prefix + "§a重载结束");
                     return true;
                 } else if (args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("i")) {
 
                     p.spigot().sendMessage(new ComponentBuilder("goPaint> ").color(ChatColor.AQUA)
-                            .append("Created by: ").color(ChatColor.GOLD)
+                            .append("作者: ").color(ChatColor.GOLD)
                             .append("Arcaniax").color(ChatColor.YELLOW).create());
 
 
@@ -112,7 +112,7 @@ public class Handler implements Listener, CommandExecutor {
                     try {
                         int sizeAmount = Integer.parseInt(args[1]);
                         pb.setBrushSize(sizeAmount);
-                        p.sendMessage(prefix + "§6Size set to: §e" + pb.getBrushSize());
+                        p.sendMessage(prefix + "§6笔刷大小设置为: §e" + pb.getBrushSize());
                         return true;
                     } catch (Exception e) {
                         p.sendMessage(prefix + "§c/gb size [number]");

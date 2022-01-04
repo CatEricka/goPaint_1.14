@@ -62,7 +62,7 @@ public class InventoryListener implements Listener {
     public void menuClick(InventoryClickEvent e) {
         try {
             Player p = (Player) e.getWhoClicked();
-            if (!e.getView().getTitle().contains("§1goPaint Menu")) {
+            if (!e.getView().getTitle().contains("§1goPaint菜单")) {
                 return;
             }
             if (e.getView().getTopInventory() != e.getClickedInventory()) {
@@ -197,7 +197,7 @@ public class InventoryListener implements Listener {
                     }
                 }
                 e.setCancelled(true);
-            } else if (e.getView().getTitle().contains("§1goPaint Menu")) {
+            } else if (e.getView().getTitle().contains("§1goPaint菜单")) {
                 e.setCancelled(true);
             }
         } catch (NullPointerException e1) {
@@ -209,7 +209,7 @@ public class InventoryListener implements Listener {
     public void menuBrushClick(InventoryClickEvent e) {
         try {
             Player p = (Player) e.getWhoClicked();
-            if (!e.getView().getTitle().contains("§1goPaint Brushes")) {
+            if (!e.getView().getTitle().contains("§1goPaint笔刷")) {
                 return;
             }
             if (e.getView().getTopInventory() != e.getClickedInventory()) {
@@ -236,7 +236,7 @@ public class InventoryListener implements Listener {
                 pb.updateInventory();
                 p.openInventory(pb.getInventory());
                 e.setCancelled(true);
-            } else if (e.getView().getTitle().contains("§1goPaint Brushes")) {
+            } else if (e.getView().getTitle().contains("§1goPaint笔刷")) {
                 e.setCancelled(true);
             }
         } catch (NullPointerException e1) {

@@ -80,7 +80,7 @@ public class BucketBrush extends Brush {
 
     @Override
     public String getName() {
-        return "Bucket Brush";
+        return "油漆桶笔刷";
     }
 
     @SuppressWarnings("deprecation")

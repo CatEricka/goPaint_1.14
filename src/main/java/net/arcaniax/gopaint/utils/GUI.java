@@ -59,13 +59,13 @@ public class GUI {
     private static final String headBlend = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWU5MTg0YWYxZGU3ZTViN2M0YWQ0MTFjNTZhZjRmOTMzNjY1MzYxNTkyOWJjOTVkNzEzYjdhNDJjZmYzZmJhZCJ9fX0=";
 
     public static Inventory Generate(PlayerBrush pb) {
-        Inventory inv = Bukkit.createInventory(null, 54, "§1goPaint Menu");
+        Inventory inv = Bukkit.createInventory(null, 54, "§1goPaint菜单");
         Update(inv, pb);
         return inv;
     }
 
     public static Inventory GenerateBrushes() {
-        Inventory inv = Bukkit.createInventory(null, 27, "§1goPaint Brushes");
+        Inventory inv = Bukkit.createInventory(null, 27, "§1goPaint笔刷");
         Items item = new Items();
         // FILLER
         for (int x = 0; x < 27; x++) {
@@ -87,7 +87,7 @@ public class GUI {
                         item.createHead(headSphere,
                                 1,
                                 "&6" + b.getName(),
-                                "___&7Click to select______" + "&8Regular sphere brush"
+                                "___&7单击选择______" + "&8常规球形笔刷"
                         )
                 );
             } else if (b instanceof SprayBrush) {
@@ -96,7 +96,7 @@ public class GUI {
                         item.createHead(headSpray,
                                 1,
                                 "&6" + b.getName(),
-                                "___&7Click to select______" + "&8Configurable random chance brush"
+                                "___&7单击选择______" + "&8可配置着色密度的喷枪笔刷"
                         )
                 );
             } else if (b instanceof SplatterBrush) {
@@ -105,7 +105,7 @@ public class GUI {
                         item.createHead(headSplatter,
                                 1,
                                 "&6" + b.getName(),
-                                "___&7Click to select______" + "&8More chance when closer___&8to the clicked point___&8and configurable chance"
+                                "___&7单击选择______" + "&8越靠近中心___&8着色密度越大___&8可配置浓度"
                         )
                 );
             } else if (b instanceof DiscBrush) {
@@ -114,7 +114,7 @@ public class GUI {
                         item.createHead(headDisc,
                                 1,
                                 "&6" + b.getName(),
-                                "___&7Click to select______" + "&8Paints blocks in the___&8same selected axis___&8from the block you clicked"
+                                "___&7单击选择______" + "&8只在选定的轴向着色"
                         )
                 );
             } else if (b instanceof BucketBrush) {
@@ -123,13 +123,13 @@ public class GUI {
                         item.createHead(headBucket,
                                 1,
                                 "&6" + b.getName(),
-                                "___&7Click to select______" + "&8Paints connected blocks___&8with the same block type"
+                                "___&7单击选择______" + "&8只着色相连的块"
                         )
                 );
             } else if (b instanceof AngleBrush) {
                 inv.setItem(
                         x,
-                        item.createHead(headAngle, 1, "&6" + b.getName(), "___&7Click to select______" + "&8Only works on cliffs")
+                        item.createHead(headAngle, 1, "&6" + b.getName(), "___&7单击选择______" + "&8只对山体有效")
                 );
             } else if (b instanceof OverlayBrush) {
                 inv.setItem(
@@ -137,7 +137,7 @@ public class GUI {
                         item.createHead(headOverlay,
                                 1,
                                 "&6" + b.getName(),
-                                "___&7Click to select______" + "&8Only paints blocks___&8that have air above it"
+                                "___&7单击选择______" + "&8只对上面为空气的块着色"
                         )
                 );
             } else if (b instanceof FractureBrush) {
@@ -146,13 +146,13 @@ public class GUI {
                         item.createHead(headFracture,
                                 1,
                                 "&6" + b.getName(),
-                                "___&7Click to select______" + "&8Places blocks in cracks/fisures"
+                                "___&7单击选择______" + "&8在裂缝和缺口处着色"
                         )
                 );
             } else if (b instanceof GradientBrush) {
                 inv.setItem(
                         x,
-                        item.createHead(headGradient, 1, "&6" + b.getName(), "___&7Click to select______" + "&8Creates gradients")
+                        item.createHead(headGradient, 1, "&6" + b.getName(), "___&7单击选择______" + "&8渐变着色")
                 );
             } else if (b instanceof PaintBrush) {
                 inv.setItem(
@@ -160,7 +160,7 @@ public class GUI {
                         item.createHead(headPaint,
                                 1,
                                 "&6" + b.getName(),
-                                "___&7Click to select______" + "&8Paints strokes___&8hold shift to end"
+                                "___&7单击选择______" + "&8油画笔触___&8右击创建路径___&8按住Shift右击结束"
                         )
                 );
             }
@@ -203,7 +203,7 @@ public class GUI {
                             (short) 0,
                             1,
                             "&6goPaint Brush",
-                            "&a&lEnabled______&7Left click with item to export___&7Right click to toggle"
+                            "&a&l已启用______&7拿起物品在此处单击可绑定笔刷___&7___&7右击禁用goPaint"
                     )
             );
             inv.setItem(
@@ -231,7 +231,7 @@ public class GUI {
                             (short) 0,
                             1,
                             "&6goPaint Brush",
-                            "&c&lDisabled______&7Left click with item to export___&7Right click to toggle"
+                            "&c&l已禁用______&7拿起物品在此处单击可绑定笔刷___&7___&7右击启用goPaint"
                     )
             );
             inv.setItem(
@@ -257,13 +257,13 @@ public class GUI {
         );
 
 
-        String clicks = "___&7Shift click to select___&7Click to cycle brush______";
+        String clicks = "___&7按住Shift单击___&7  进入笔刷列表查看详细信息___&7单击或右击循环切换______";
         if (b instanceof SphereBrush) {
             inv.setItem(
                     11,
                     item.createHead(headSphere,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -272,7 +272,7 @@ public class GUI {
                     11,
                     item.createHead(headSpray,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -281,7 +281,7 @@ public class GUI {
                     11,
                     item.createHead(headSplatter,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -290,7 +290,7 @@ public class GUI {
                     11,
                     item.createHead(headDisc,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -299,7 +299,7 @@ public class GUI {
                     11,
                     item.createHead(headBucket,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -308,7 +308,7 @@ public class GUI {
                     11,
                     item.createHead(headAngle,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -317,7 +317,7 @@ public class GUI {
                     11,
                     item.createHead(headOverlay,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -326,7 +326,7 @@ public class GUI {
                     11,
                     item.createHead(headFracture,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -335,7 +335,7 @@ public class GUI {
                     11,
                     item.createHead(headGradient,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -344,7 +344,7 @@ public class GUI {
                     11,
                     item.createHead(headPaint,
                             1,
-                            "&6Selected Brush type",
+                            "&6选定的笔刷类型",
                             clicks + GoPaintPlugin.getBrushManager().getBrushLore(b.getName())
                     )
             );
@@ -375,8 +375,8 @@ public class GUI {
                     item.create(XMaterial.GOLD_NUGGET.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Place chance: &e" + pb.getChance() + "%",
-                            "___&7Left click to increase___&7Right click to decrease"
+                            "&6着色密度: &e" + pb.getChance() + "%",
+                            "___&7单击增加___&7右击减少"
                     )
             );
             inv.setItem(
@@ -406,8 +406,8 @@ public class GUI {
                     item.create(XMaterial.COMPASS.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Axis: &e" + pb.getAxis(),
-                            "___&7Click to change"
+                            "&6轴向: &e" + pb.getAxis(),
+                            "___&7点击修改"
                     )
             );
             inv.setItem(
@@ -438,8 +438,8 @@ public class GUI {
                     item.create(XMaterial.BOOK.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Layer Thickness: &e" + pb.getThickness(),
-                            "___&7Left click to increase___&7Right click to decrease"
+                            "&6向下着色深度: &e" + pb.getThickness(),
+                            "___&7单击增大___&7右击减小"
                     )
             );
             inv.setItem(
@@ -469,8 +469,8 @@ public class GUI {
                     item.create(XMaterial.DAYLIGHT_DETECTOR.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Angle Check Distance: &e" + pb.getAngleDistance(),
-                            "___&7Left click to increase___&7Right click to decrease"
+                            "&6角度检查距离: &e" + pb.getAngleDistance(),
+                            "___&7单击增大___&7右击减小"
                     )
             );
             inv.setItem(
@@ -497,8 +497,8 @@ public class GUI {
                     item.create(XMaterial.BLAZE_ROD.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Maximum Angle: &e" + pb.getMinHeightDifference() + "°",
-                            "___&7Left click to increase___&7Right click to decrease___&7Shift click to change by 15"
+                            "&6最大角度: &e" + pb.getMinHeightDifference() + "°",
+                            "___&7角度指与水平的角度___&7只着色表面角度小于该角度的方块___&7___&7单击增大___&7右击减小___&7按住Shift点击增大或减小15"
                     )
             );
             inv.setItem(
@@ -528,8 +528,8 @@ public class GUI {
                     item.create(XMaterial.DAYLIGHT_DETECTOR.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Fracture Check Distance: &e" + pb.getFractureDistance(),
-                            "___&7Left click to increase___&7Right click to decrease"
+                            "&6裂缝检查距离: &e" + pb.getFractureDistance(),
+                            "___&7单击增大___&7右击减小"
                     )
             );
             inv.setItem(
@@ -559,8 +559,8 @@ public class GUI {
                     item.create(XMaterial.MAGMA_CREAM.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Mixing Strength: &e" + pb.getMixingStrength() + "%",
-                            "___&7Left click to increase___&7Right click to decrease"
+                            "&6混合强度: &e" + pb.getMixingStrength() + "%",
+                            "___&7单击增大___&7右击减小"
                     )
             );
             inv.setItem(
@@ -589,8 +589,8 @@ public class GUI {
                     item.create(XMaterial.BLAZE_POWDER.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Falloff Strength: &e" + pb.getFalloffStrength() + "%",
-                            "___&7Left click to increase___&7Right click to decrease"
+                            "&6衰减强度: &e" + pb.getFalloffStrength() + "%",
+                            "___&7单击增大___&7右击减小"
                     )
             );
             inv.setItem(
@@ -620,8 +620,8 @@ public class GUI {
                 item.create(XMaterial.BROWN_MUSHROOM.parseMaterial(),
                         (short) 0,
                         1,
-                        "&6Brush Size: &e" + pb.getBrushSize(),
-                        "___&7Left click to increase___&7Right click to decrease___&7Shift click to change by 10"
+                        "&6笔刷大小: &e" + pb.getBrushSize(),
+                        "___&7单击增大___&7右击减小___&7按住Shift点击增加或减小10"
                 )
         );
         inv.setItem(
@@ -650,8 +650,8 @@ public class GUI {
                     item.create(XMaterial.JACK_O_LANTERN.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Mask",
-                            "&a&lEnabled______&7Click to toggle"
+                            "&6蒙版",
+                            "&a&l已启用______&7点击禁用"
                     )
             );
             inv.setItem(
@@ -675,7 +675,7 @@ public class GUI {
             );
             inv.setItem(
                     15,
-                    item.create(XMaterial.PUMPKIN.parseMaterial(), (short) 0, 1, "&6Mask", "&c&lDisabled______&7Click to toggle")
+                    item.create(XMaterial.PUMPKIN.parseMaterial(), (short) 0, 1, "&6蒙版", "&c&l已禁用______&7点击启用")
             );
             inv.setItem(
                     24,
@@ -704,8 +704,8 @@ public class GUI {
                     item.create(XMaterial.LIGHT_WEIGHTED_PRESSURE_PLATE.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Surface Mode",
-                            "&a&lEnabled______&7Click to toggle"
+                            "&6表面模式",
+                            "&a&l已开启______&7只对表面着色______&7点击关闭"
                     )
             );
             inv.setItem(
@@ -732,8 +732,8 @@ public class GUI {
                     item.create(XMaterial.LIGHT_WEIGHTED_PRESSURE_PLATE.parseMaterial(),
                             (short) 0,
                             1,
-                            "&6Surface Mode",
-                            "&c&lDisabled______&7Click to toggle"
+                            "&6表面模式",
+                            "&c&l已关闭______&7会对内部着色______&7点击开启"
                     )
             );
             inv.setItem(
@@ -762,7 +762,7 @@ public class GUI {
         for (int x = 46; x <= 50; x++) {
             inv.setItem(
                     x,
-                    item.create(XMaterial.BARRIER.parseMaterial(), (short) 0, 1, "&cEmpty Slot", "___&7Click with a block to set")
+                    item.create(XMaterial.BARRIER.parseMaterial(), (short) 0, 1, "&c空混色槽", "___&7放入方块设置")
             );
         }
         int x = 46;
@@ -777,8 +777,8 @@ public class GUI {
                         item.create(mat,
                                 data,
                                 1,
-                                "&aSlot " + (x - 45) + " &7" + (int) Math.floor(100 / size) + "%",
-                                "___&7Left click with a block to change___&7Right click to clear"
+                                "&a混色槽 " + (x - 45) + " &7" + (int) Math.floor(100 / size) + "%",
+                                "___&7放入方块修改___&7右击清除"
                         )
                 );
             } else {
@@ -787,8 +787,8 @@ public class GUI {
                         item.create(mat,
                                 data,
                                 (int) Math.floor(100 / size),
-                                "&aSlot " + (x - 45) + " &7" + (int) Math.floor(100 / size) + "%",
-                                "___&7Left click with a block to change___&7Right click to clear"
+                                "&a混色槽 " + (x - 45) + " &7" + (int) Math.floor(100 / size) + "%",
+                                "___&7放入方块修改___&7右击清除"
                         )
                 );
             }
@@ -808,7 +808,7 @@ public class GUI {
         BlockType bt = pb.getMask();
         inv.setItem(
                 52,
-                item.create(bt.getMaterial(), bt.getData(), 1, "&6Current Mask", "___&7Left click with a block to change")
+                item.create(bt.getMaterial(), bt.getData(), 1, "&6当前蒙版", "___&7放入方块修改蒙版")
         );
     }
 

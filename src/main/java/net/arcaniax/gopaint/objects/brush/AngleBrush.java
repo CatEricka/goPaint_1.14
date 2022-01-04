@@ -85,7 +85,7 @@ public class AngleBrush extends Brush {
 
     @Override
     public String getName() {
-        return "Angle Brush";
+        return "角度笔刷";
     }
 
     @SuppressWarnings("deprecation")
